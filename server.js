@@ -28,6 +28,9 @@ server.listen(8080);
 
 io.on('connection', function (socket) {
   console.log("Socket connected: ", socket.id)
+  socket.on('update', function (data) {
+    socket.emit('update', data);
+  });
 });
 
 console.log('listening on port 8080');
