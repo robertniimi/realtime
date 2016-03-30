@@ -59,7 +59,8 @@ export default class MyEditor extends React.Component {
     this.socket = io.connect('http://localhost:8080');
     this.socket.on('update', (data) => {
       console.log('[app] data: ', data);
-      this.setState(EditorState.createWithContent(data));
+      const newContent = EditorState.createWithContent(data);
+      this.setState(newContent);
     });
   }
 
