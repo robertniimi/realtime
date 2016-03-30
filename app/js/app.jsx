@@ -72,7 +72,7 @@ export default class MyEditor extends React.Component {
     const {editorState} = this.state;
 
     return (
-      <div>
+      <div className='editor'>
         <button onClick={this._onBoldClick.bind(this)}>Bold</button>
         <Editor
           editorState={editorState}

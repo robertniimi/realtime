@@ -13,7 +13,7 @@ var DIST_STATIC_IMAGES = DIST_STATIC + 'images/';
 
 var APP = './app/';
 var APP_JS = APP + 'js/';
-var APP_STYLE = APP + 'style/';
+var APP_STYLE = APP + 'styles/';
 var APP_STYLE_CSS = APP_STYLE + 'css/';
 var APP_STYLE_SASS = APP_STYLE + 'sass/';
 var APP_IMAGES = APP + 'images/';
@@ -59,25 +59,15 @@ gulp.task('_webpack', () => {
 
 /* ========== Style Tasks ========== */
 // gulp.task('styles', ['_minify-css']);
-gulp.task('styles', ['_sass', '_css']);
+gulp.task('styles', ['_sass']);
 
 gulp.task('_sass', () => {
-  return gulp.src(APP_STYLE_SASS + ALL_SCSS)
+  return gulp.src(APP_STYLE + 'main.scss')
     .pipe($.plumber())
     .pipe($.sass({
       includePaths: ['./node_modules', './node_modules/support-for/sass'],
       errLogToConsole: true,
     }))
-    .pipe($.plumber.stop())
-    .pipe(gulp.dest(DIST_STATIC))
-    ;
-});
-
-gulp.task('_css', () => {
-  return gulp.src('./web/app/style/css/vendor_import.css')
-    .pipe($.plumber())
-    .pipe($.postcss([postcssImport]))
-    .pipe($.rename('vendor.css'))
     .pipe($.plumber.stop())
     .pipe(gulp.dest(DIST_STATIC))
     ;
