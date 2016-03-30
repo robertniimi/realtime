@@ -1,7 +1,9 @@
 var
   express = require('express'),
   app = express(),
-  path = require('path');
+  server = require('http').Server(app);
+  path = require('path'),
+  io = require('socket.io')(server);
 
 // if (process.env.NODE_ENV === 'development') {
 //   const webpack = require('webpack');
@@ -22,6 +24,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/dist/index.html'));
 });
 
-app.listen(8080);
+server.listen(8080);
+
+io.on('connection', function (socket) {
+  console.log("Socket connected: ", socket.id)
+});
 
 console.log('listening on port 8080');
