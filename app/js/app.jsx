@@ -1,4 +1,4 @@
-import io from 'socket.io';
+import io from 'socket.io-client';
 import {
   CompositeDecorator,
   Editor,
@@ -50,15 +50,16 @@ export default class MyEditor extends React.Component {
     };
 
     this.onChange = (editorState) => {
-      this.setState({editorState})
+      this.socket.emit('update', editorState.toJS());
+      // this.setState({editorState})
     };
-
   }
 
   componentDidMount() {
     this.socket = io.connect('http://localhost:8080');
     this.socket.on('update', (data) => {
-      socket.emit('my other event', { my: 'data' });
+      console.log('[app] data: ', data);
+      this.setState(EditorState.createWithContent(data));
     });
   }
 
@@ -80,6 +81,7 @@ export default class MyEditor extends React.Component {
   }
 
   render() {
+    console.log('[app] this.state: ', this.state);
     const {editorState} = this.state;
     return (
       <div className='editor'>
