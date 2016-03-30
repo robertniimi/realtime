@@ -11,7 +11,6 @@ import {
  * @prop {type} PROP - PROP_DESCRIPTION
  */
 
-
 export default class MyEditor extends React.Component {
   static displayName = 'MyEditor';
   static propTypes = {
@@ -23,8 +22,8 @@ export default class MyEditor extends React.Component {
 
     const styles = {
       cursor: {
-        borderRight: '1px solid black',
-        borderLeft: '1px solid black'
+        // borderRight: '1px solid black',
+        // borderLeft: '1px solid black'
       }
     };
 
