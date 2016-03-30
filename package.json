@@ -18,9 +18,24 @@
     "babel-preset-stage-0": "^6.5.0",
     "draft-js": "^0.3.0",
     "expose-loader": "^0.7.1",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-debug": "^2.1.2",
+    "gulp-htmlmin": "^1.3.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "imagemin-pngquant": "^4.2.2",
     "json-loader": "^0.5.4",
+    "postcss-import": "^8.0.2",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
-    "webpack": "^1.12.14"
+    "run-sequence": "^1.1.5",
+    "webpack": "^1.12.14",
+    "webpack-stream": "^3.1.0"
   }
 }

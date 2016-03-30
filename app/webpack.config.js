@@ -4,7 +4,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    app: [__dirname + '/main'],
+    app: [__dirname + '/js/main'],
     vendor: [
       'draft-js',
       'react',
