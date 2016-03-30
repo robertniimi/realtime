@@ -1,3 +1,4 @@
+import io from 'socket.io';
 import {
   CompositeDecorator,
   Editor,
@@ -54,6 +55,17 @@ export default class MyEditor extends React.Component {
 
   }
 
+  componentDidMount() {
+    this.socket = io.connect('http://localhost:8080');
+    this.socket.on('update', (data) => {
+      socket.emit('my other event', { my: 'data' });
+    });
+  }
+
+  componentWillUnmount() {
+    this.socket.removeListener('update');
+  }
+
   handleKeyCommand(command) {
     const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
     if (newState) {
@@ -69,7 +81,6 @@ export default class MyEditor extends React.Component {
 
   render() {
     const {editorState} = this.state;
-
     return (
       <div className='editor'>
         <button onClick={this._onBoldClick.bind(this)}>Bold</button>
