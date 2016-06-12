@@ -2288,7 +2288,7 @@
 	    !!INVALID_PROPERTY_ERRORS.hasOwnProperty(name) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'updatePropertyByID(...): %s', INVALID_PROPERTY_ERRORS[name]) : invariant(false) : undefined;
 
 	    // If we're updating to null or undefined, we should remove the property
-	    // from the DOM node instead of inadvertantly setting to a string. This
+	    // from the DOM node instead of inadvertently setting to a string. This
 	    // brings us in line with the same behavior we have on initial render.
 	    if (value != null) {
 	      DOMPropertyOperations.setValueForProperty(node, name, value);
@@ -11563,7 +11563,7 @@
 	          node = ReactMount.getNode(this._rootNodeID);
 	        }
 	        // If we're updating to null or undefined, we should remove the property
-	        // from the DOM node instead of inadvertantly setting to a string. This
+	        // from the DOM node instead of inadvertently setting to a string. This
 	        // brings us in line with the same behavior we have on initial render.
 	        if (nextProp != null) {
 	          DOMPropertyOperations.setValueForProperty(node, propKey, nextProp);
